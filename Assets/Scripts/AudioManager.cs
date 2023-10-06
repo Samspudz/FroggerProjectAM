@@ -7,8 +7,8 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    [SerializeField] AudioClip[] soundFX;
-    [SerializeField] AudioClip[] bgMusic;
+    public AudioClip[] soundFX;
+    public AudioClip[] bgMusic;
 
     [SerializeField] AudioSource _audi;
 

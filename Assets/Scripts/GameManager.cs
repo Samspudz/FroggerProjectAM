@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject frogPlayer;
+    public Transform startPoint;
+    public void NewFrog()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Instantiate(frogPlayer, startPoint.position, startPoint.rotation);
     }
 }
