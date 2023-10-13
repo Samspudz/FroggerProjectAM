@@ -120,7 +120,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canMove: 0
+  isDead: 0
+  onPlatform: 0
+  onRiver: 0
+  atBarrier: 0
   _anim: {fileID: 0}
+  gameManager: {fileID: 0}
+  audioManager: {fileID: 0}
+  _audi: {fileID: 0}
 --- !u!1 &8738623706618415098
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,9 +199,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1699071845
+  m_SortingLayer: 2
+  m_SortingOrder: 2
   m_Sprite: {fileID: -1020176475, guid: 34431d638242d4648a1ce0d2cbd83053, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

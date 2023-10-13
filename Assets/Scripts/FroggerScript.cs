@@ -5,8 +5,9 @@ using UnityEngine;
 public class FroggerScript : MonoBehaviour
 {
     [SerializeField] private bool canMove;
-    [SerializeField] private bool isDead;
+    public bool isDead;
     [SerializeField] private bool onPlatform;
+    [SerializeField] private bool onRiver;
     [SerializeField] private bool atBarrier;
     [SerializeField] Animator _anim;
     [SerializeField] GameManager gameManager;
@@ -89,13 +90,50 @@ public class FroggerScript : MonoBehaviour
 
         StartCoroutine(SmoothMove(destination));
     }
-    
-    void OnTriggerEnter2D(Collider2D other)
+
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "KillVolume" && !isDead)
         {
-            StartCoroutine(PlayerDeath());
+            StartCoroutine(PlayerDeath(3));
         }
+
+        if (other.gameObject.tag == "River" && !isDead)
+        {
+            onRiver = true;
+        }
+
+        if (other.gameObject.tag == "Scoring")
+        {
+            ScoringScript _score = other.gameObject.GetComponent<ScoringScript>();
+            if (!_score.zoneTrigger)
+            {
+                gameManager.gameScore += _score.zoneScore;
+                _score.zoneTrigger = true;
+            }
+        }
+
+        if (other.gameObject.tag == "LilyPad")
+        {
+            LilyPadScript _pad = other.gameObject.GetComponent<LilyPadScript>();
+            if (!_pad._occupied)
+            {
+                _pad._occupied = true;
+                _pad._spr.enabled = true;
+                gameManager.padCount--;
+                gameManager.gameScore += 1000;
+                gameManager.NewFrog();
+                StartCoroutine(MoveTime());
+                Destroy(gameObject);
+            }
+            else StartCoroutine(PlayerDeath(3));
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other) //ask 
+    {
+        if (other.gameObject.tag == "River") onRiver = false;
     }
 
     IEnumerator SmoothMove(Vector3 destination)
@@ -123,16 +161,30 @@ public class FroggerScript : MonoBehaviour
         if (!atBarrier) _audi.PlayOneShot(audioManager.soundFX[1]);
         yield return new WaitForSeconds(0.15f);
         canMove = true;
+        if (onRiver)
+        {
+            if (!onPlatform)
+            {
+                StartCoroutine(PlayerDeath(2));
+            }    
+        }
     }
 
-    IEnumerator PlayerDeath()
+    public void TimeOut()
+    {
+        StartCoroutine(PlayerDeath(3));
+    }
+
+    IEnumerator PlayerDeath(int sfx)
     {
         isDead = true;
         transform.SetParent(null);
         transform.rotation = Quaternion.Euler(0, 0, 0);
         _anim.SetTrigger("Death");
-        _audi.PlayOneShot(audioManager.soundFX[3]);
+        _audi.PlayOneShot(audioManager.soundFX[sfx]);
         yield return new WaitForSeconds(1.5f);
+        isDead = false;
+        gameManager.playerLives--;
         Destroy(gameObject);
         gameManager.NewFrog();
     }

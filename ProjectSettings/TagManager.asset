@@ -7,6 +7,9 @@ TagManager:
   - AudioManager
   - GameManager
   - KillVolume
+  - River
+  - LilyPad
+  - Scoring
   layers:
   - Default
   - TransparentFX
@@ -43,4 +46,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: New Layer 1
+    uniqueID: 2394005279
+    locked: 0
+  - name: New Layer 2
+    uniqueID: 1699071845
     locked: 0
