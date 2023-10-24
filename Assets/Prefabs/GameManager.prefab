@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 45573266797809437}
+  - component: {fileID: 510003650756837478}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,3 +32,40 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &510003650756837478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7485417594058107351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 398e2c355260e474c8130763eb7eab28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frogPlayer: {fileID: 1170722955610821890, guid: 8ed1d467a5b7c9048bdc078845b9a6b6, type: 3}
+  startPoint: {fileID: 0}
+  gameScore: 0
+  playerLives: 3
+  scoreCount: {fileID: 0}
+  lifeCount: {fileID: 0}
+  finalScoreCount: {fileID: 0}
+  sZone:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  timebar: {fileID: 0}
+  timeCount: 30
+  padCount: 5
+  winPanel: {fileID: 0}
+  losePanel: {fileID: 0}
+  finalScorePanel: {fileID: 0}

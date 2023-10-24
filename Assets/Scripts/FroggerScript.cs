@@ -183,9 +183,9 @@ public class FroggerScript : MonoBehaviour
         _anim.SetTrigger("Death");
         _audi.PlayOneShot(audioManager.soundFX[sfx]);
         yield return new WaitForSeconds(1.5f);
-        isDead = false;
         gameManager.playerLives--;
         Destroy(gameObject);
+        isDead = false;
         gameManager.NewFrog();
     }
 }

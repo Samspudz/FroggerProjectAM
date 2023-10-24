@@ -124,7 +124,7 @@ MonoBehaviour:
   onPlatform: 0
   onRiver: 0
   atBarrier: 0
-  _anim: {fileID: 0}
+  _anim: {fileID: 5216145639165076428}
   gameManager: {fileID: 0}
   audioManager: {fileID: 0}
   _audi: {fileID: 0}

@@ -7,7 +7,7 @@ public class MoveCycleScript : MonoBehaviour
     public Vector2 moveDirection = Vector2.right;
     public float moveSpeed = 1;
 
-    public int objSize = 1;
+    public float objSize = 1;
 
     [SerializeField] private Vector3 leftEdge;
     [SerializeField] private Vector3 rightEdge;

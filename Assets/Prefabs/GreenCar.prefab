@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDirection: {x: 1, y: 0}
-  moveSpeed: 1
+  moveSpeed: 1.5
   objSize: 1
   leftEdge: {x: 0, y: 0, z: 0}
   rightEdge: {x: 0, y: 0, z: 0}

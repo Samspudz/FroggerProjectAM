@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
         gameScore = 0;
         playerLives = 3;
         padCount = 5;
-        timeCount = 5;
+        timeCount = 30;
     }
 
     void Update()
@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
             }
 
             Instantiate(frogPlayer, startPoint.position, startPoint.rotation);
-            timeCount = 5;
+            timeCount = 30;
         }
         else
         {
