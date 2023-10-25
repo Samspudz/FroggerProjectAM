@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
         gameScore = 0;
         playerLives = 3;
         padCount = 5;
-        timeCount = 30;
+        timeCount = 5;
     }
 
     void Update()
@@ -47,8 +47,12 @@ public class GameManager : MonoBehaviour
         timeCount -= Time.deltaTime;
         timebar.fillAmount = timeCount / 30;
 
+        if (frogScript == null)
+            return;
+
         if (timeCount <= 0 && !frogScript.isDead)
         {
+
             frogScript.TimeOut();
         }
     }
@@ -62,8 +66,10 @@ public class GameManager : MonoBehaviour
                 z.zoneTrigger = false;
             }
 
-            Instantiate(frogPlayer, startPoint.position, startPoint.rotation);
-            timeCount = 30;
+            GameObject g = Instantiate(frogPlayer, startPoint.position, startPoint.rotation);
+            timeCount = 5;
+            frogScript = g.GetComponent<FroggerScript>();
+            
         }
         else
         {
